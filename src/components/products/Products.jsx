@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
-import { ProductsData } from "../../data/ProductosData";
+import { ProductsData } from "../../data/ProductsData";
 import "./Products.css";
 
 const Products = () => {
-  const { addItemToCart } = useContext(CartContext);
+  const { AddItemToCart } = useContext(CartContext);
 
   return (
     <div className="products-container">
-      {ProductsData.map((product) => (
-        <div key={product.id} className="product-container">
+      {ProductsData.map((product, id) => (
+        <div key={id} className="product-container">
           <img src={product.img} />
           <div>
             <h3 className="name-product">{product.name}</h3>
@@ -18,7 +18,7 @@ const Products = () => {
           <div className="product-footer">
             <p className="price-product">${product.price}</p>
             <button
-              onClick={() => addItemToCart(product)}
+              onClick={() => AddItemToCart(product)}
               className="add-product-button"
             >
               Agregar
