@@ -1,10 +1,11 @@
-import Home from "./screens/Home";
+import { CartProvider } from "./context/CartContext";
+import Home from "./screens/home/Home";
 
 function App() {
   return (
-    <div>
+    <CartProvider>
       <Home />
-    </div>
+    </CartProvider>
   );
 }
 
