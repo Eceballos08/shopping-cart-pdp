@@ -21,6 +21,7 @@ export const CartProvider = ({ children }) => {
     const inCart = cartItems.find(
       (productInCart) => productInCart.id === product.id
     );
+
     if (inCart) {
       setCartItems(
         cartItems.map((productInCart) => {
@@ -29,7 +30,6 @@ export const CartProvider = ({ children }) => {
           } else return productInCart;
         })
       );
-      /* Si el producto no se encuentra al carrito, lo agregamos y dejamos en uno la cantidad */
     } else {
       setCartItems([...cartItems, { ...product, amount: 1 }]);
     }
@@ -53,6 +53,7 @@ export const CartProvider = ({ children }) => {
       );
     }
   };
+
   return (
     <CartContext.Provider
       value={{ cartItems, AddItemToCart, DeleteItemToCart }}
@@ -61,5 +62,3 @@ export const CartProvider = ({ children }) => {
     </CartContext.Provider>
   );
 };
-
-export default CartContext;
