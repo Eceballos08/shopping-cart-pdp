@@ -1,6 +1,7 @@
 .cart-container {
   display: flex;
   justify-content: flex-end;
+
   background-color: rebeccapurple;
   width: 90%;
   padding: 20px;
@@ -15,4 +16,14 @@
 
 .cart-button:hover {
   background-color: #a7d2cb;
+}
+
+.open-cart-container {
+  background-color: red;
+  padding: 15px;
+}
+
+.header-cart {
+  font-weight: 500;
+  font-size: 15px;
 }

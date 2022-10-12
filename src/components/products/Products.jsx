@@ -8,9 +8,9 @@ const Products = () => {
 
   return (
     <div className="products-container">
-      {ProductsData.map((product, id) => (
-        <div key={id} className="product-container">
-          <img src={product.img} />
+      {ProductsData.map((product) => (
+        <div key={product.id} className="product-container">
+          <img src={product.img} className="product-image" />
           <div>
             <h3 className="name-product">{product.name}</h3>
             <p className="description-product">{product.description}</p>
