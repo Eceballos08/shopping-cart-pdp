@@ -52,9 +52,12 @@ const Cart = () => {
           {cartItems.length > 0 ? (
             cartItems.map((item) => <ItemCart key={item.id} item={item} />)
           ) : (
-            <span>Agrega tu primer producto al carrito</span>
+            <span className="cart-empty">
+              Agrega tu primer producto al carrito
+            </span>
           )}
-          <h3>$ {totalItemsCart}</h3>
+          <div className="separator"></div>
+          <h3 className="total-shopping-cart-text">Total: ${totalItemsCart}</h3>
         </div>
       )}
     </div>

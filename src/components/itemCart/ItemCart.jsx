@@ -8,14 +8,21 @@ const ItemCart = ({ item }) => {
   return (
     <div className="item-cart-container">
       <img src={item.img} className="item-cart-image" />
-      <div>
+      <div className="information-container">
         <p className="item-cart-name">{item.name}</p>
         <p className="item-cart-price">${item.price}</p>
       </div>
       <div className="buttons-container">
-        <button onClick={() => AddItemToCart(item)}>+</button>
-        <p>{item.amount}</p>
-        <button onClick={() => DeleteItemToCart(item)}>-</button>
+        <button className="button" onClick={() => AddItemToCart(item)}>
+          +
+        </button>
+        <p className="amount-text">{item.amount}</p>
+        <button className="button" onClick={() => DeleteItemToCart(item)}>
+          -
+        </button>
+      </div>
+      <div className="price-increased-container">
+        <p className="price-increased-text">${item.price * item.amount}</p>
       </div>
     </div>
   );
