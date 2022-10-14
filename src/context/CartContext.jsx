@@ -34,7 +34,7 @@ export const CartProvider = ({ children }) => {
       setCartItems([...cartItems, { ...product, amount: 1 }]);
     }
   };
-
+  /*function to delete items of the cart */
   const DeleteItemToCart = (product) => {
     const inCart = cartItems.find(
       (productInCart) => productInCart.id === product.id

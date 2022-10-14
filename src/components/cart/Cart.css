@@ -1,8 +1,8 @@
 .cart-container {
   display: flex;
   justify-content: flex-end;
-  background-color: rebeccapurple;
   width: 90%;
+  height: 50px;
   padding: 20px;
 }
 
@@ -57,7 +57,7 @@
 
 .header-cart {
   font-weight: 600;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .cart-empty {

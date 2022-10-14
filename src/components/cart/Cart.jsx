@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 import ItemCart from "../itemCart/ItemCart";
+import SumaryCart from "../sumaryCart/SumaryCart";
 import "./Cart.css";
 
 const Cart = () => {
@@ -57,6 +58,7 @@ const Cart = () => {
             </span>
           )}
           <div className="separator"></div>
+          <SumaryCart />
           <h3 className="total-shopping-cart-text">Total: ${totalItemsCart}</h3>
         </div>
       )}
