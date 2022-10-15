@@ -10,9 +10,9 @@ const Products = () => {
     <div className="products-container">
       {ProductsData.map((product) => (
         <div key={product.id} className="product-container">
+          <h3 className="name-product">{product.name}</h3>
           <img src={product.img} className="product-image" />
           <div>
-            <h3 className="name-product">{product.name}</h3>
             <p className="description-product">{product.description}</p>
           </div>
           <div className="product-footer">

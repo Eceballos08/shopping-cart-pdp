@@ -26,8 +26,8 @@ p {
   align-items: flex-start;
   justify-content: center;
   margin: 0;
-  background-color: #fff; /*372948*/
-  padding: 15px;
+  background-color: rgb(246, 246, 246); /*372948*/
+  padding: 30px;
 }
 
 .name-product {
@@ -46,23 +46,33 @@ p {
 .price-product {
   padding: 6px 0;
   color: #000;
+  font-size: 17px;
+  font-weight: 500;
 }
+
 .product-footer {
   width: 100%;
+  margin-top: 15px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
 .add-product-button {
+  width: 100px;
   border: none;
-  background-color: #ffcaca;
-  color: #000;
+  background-color: #101010;
+  color: #fff;
   border-radius: 10px;
   cursor: pointer;
   padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .add-product-button:hover {
-  background-color: #ffecef;
+  background-color: #ff9f29;
+  color: #000;
 }

@@ -15,7 +15,7 @@
 
 .cart-button {
   border: none;
-  background-color: aliceblue;
+  background-color: #ff9f29;
   border-radius: 10px;
   width: 50px;
   height: 50px;
@@ -26,7 +26,7 @@
 }
 
 .cart-button:hover {
-  background-color: #a7d2cb;
+  background-color: #faf3e3;
 }
 
 .products-length-container {
@@ -45,7 +45,7 @@
 }
 
 .open-cart-container {
-  background-color: #edceea;
+  background-color: #faf3e3;
   position: absolute;
   margin-top: 20px;
   margin-right: 20px;

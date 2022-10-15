@@ -44,17 +44,27 @@
 }
 
 .button {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
+  font-size: 14px;
   border: none;
   border-radius: 50px;
   cursor: pointer;
   margin: 0 5px;
+  background-color: #b4a5a5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button:hover {
+  background-color: #393e46;
+  color: #fff;
 }
 
 .amount-text {
   color: #000;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
 }
 
