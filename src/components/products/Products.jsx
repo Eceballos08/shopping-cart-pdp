@@ -1,10 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 import { ProductsData } from "../../data/ProductsData";
 import "./Products.css";
 
 const Products = () => {
-  const { AddItemToCart } = useContext(CartContext);
+  const [disableButton, setDisableButton] = useState(false);
+
+  const { cartItems, AddItemToCart } = useContext(CartContext);
+
+  const validateAmount = () => {
+    if (cartItems.amount > ProductsData.amount) {
+      setDisableButton(false);
+    } else {
+      setDisableButton(true);
+    }
+  };
 
   return (
     <div className="products-container">
@@ -17,6 +27,7 @@ const Products = () => {
           </div>
           <div className="product-footer">
             <p className="price-product">${product.price}</p>
+
             <button
               onClick={() => AddItemToCart(product)}
               className="add-product-button"

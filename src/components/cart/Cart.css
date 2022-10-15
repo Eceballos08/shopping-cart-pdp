@@ -86,19 +86,25 @@
   flex-direction: column;
   margin-top: 2px;
   width: 100%;
-  background-color: #351f39;
 }
 
 .coupon-container {
-  background-color: #719fb0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding-top: 15px;
+}
+
+.coupon-title {
+  font-size: 15px;
+  font-weight: 500;
 }
 
 .sumary-details-container {
-  background-color: #726a95;
+  padding-top: 15px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  font-size: 14px;
+  color: #3f4e4f;
 }
