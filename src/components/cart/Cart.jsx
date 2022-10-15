@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 import ItemCart from "../itemCart/ItemCart";
-import SumaryCart from "../sumaryCart/SumaryCart";
 import "./Cart.css";
 
 const Cart = () => {
@@ -9,6 +8,8 @@ const Cart = () => {
 
   const [cartOpen, setCartOpen] = useState(false);
   const [productsLength, setProductsLength] = useState(0);
+  const [total, setTotal] = useState(0);
+  const [discount, setDiscount] = useState(0);
   const initialValue = 0;
 
   //every time shopping cart change, the amount of products is updated
@@ -21,11 +22,31 @@ const Cart = () => {
     );
   }, [cartItems]);
 
-  const totalItemsCart = cartItems.reduce(
+  //to get the total shipping cost. The function reduce was used to obtain the total price of the products on cart
+  const subTotalItemsCart = cartItems.reduce(
     (previousValue, currentValue) =>
       previousValue + currentValue.amount * currentValue.price,
     initialValue
   );
+
+  //to get the data that we write on the input and calculate the discount
+  const handleChangeDiscount = (e) => {
+    const subTotal = cartItems.reduce(
+      (previousValue, currentValue) =>
+        previousValue + currentValue.amount * currentValue.price,
+      initialValue
+    );
+    const baseDiscount = e.target.value;
+    const discountAmount = (subTotal * baseDiscount) / 100;
+    const totalDiscount = subTotal - discountAmount;
+    if (e.target.value.length === "") {
+      setTotal(subTotal);
+      setDiscount(discountAmount);
+    } else {
+      setDiscount(discountAmount);
+      setTotal(totalDiscount);
+    }
+  };
 
   return (
     <div className="cart-container">
@@ -58,8 +79,25 @@ const Cart = () => {
             </span>
           )}
           <div className="separator"></div>
-          <SumaryCart />
-          <h3 className="total-shopping-cart-text">Total: ${totalItemsCart}</h3>
+
+          <div className="sumary-container">
+            <div className="coupon-container">
+              <label className="coupon-title">Código de descuento</label>
+              <input
+                type="number"
+                min="0"
+                max="100"
+                className="coupon-button"
+                onChange={handleChangeDiscount}
+              />
+            </div>
+            <div className="sumary-details-container">
+              <p>Subtotal: ${subTotalItemsCart} </p>
+              <p>Descuento: ${discount} </p>
+            </div>
+          </div>
+
+          <h3 className="total-shopping-cart-text">Total: ${total}</h3>
         </div>
       )}
     </div>

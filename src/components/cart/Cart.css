@@ -79,3 +79,26 @@
 .separator {
   border-top: 1px solid rgb(46, 46, 46);
 }
+
+/*STYLES OF SUMARY*/
+.sumary-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2px;
+  width: 100%;
+  background-color: #351f39;
+}
+
+.coupon-container {
+  background-color: #719fb0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.sumary-details-container {
+  background-color: #726a95;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
