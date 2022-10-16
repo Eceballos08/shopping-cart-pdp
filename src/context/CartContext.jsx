@@ -21,6 +21,7 @@ export const CartProvider = ({ children }) => {
     const inCart = cartItems.find(
       (productInCart) => productInCart.id === product.id
     );
+
     if (inCart) {
       setCartItems(
         cartItems.map((productInCart) => {
@@ -37,6 +38,7 @@ export const CartProvider = ({ children }) => {
       setCartItems([...cartItems, { ...product, amount: 1 }]);
     }
   };
+
   /*function to delete items of the cart */
   const DeleteItemToCart = (product) => {
     const inCart = cartItems.find(
