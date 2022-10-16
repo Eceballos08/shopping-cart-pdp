@@ -21,15 +21,18 @@ export const CartProvider = ({ children }) => {
     const inCart = cartItems.find(
       (productInCart) => productInCart.id === product.id
     );
-
     if (inCart) {
       setCartItems(
         cartItems.map((productInCart) => {
           if (productInCart.id === product.id) {
-            return { ...inCart, amount: inCart.amount + 1 };
+            return {
+              ...inCart,
+              amount: inCart.amount + 1,
+            };
           } else return productInCart;
         })
       );
+      console.log(product.amount);
     } else {
       setCartItems([...cartItems, { ...product, amount: 1 }]);
     }

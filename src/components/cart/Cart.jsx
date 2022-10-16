@@ -6,10 +6,13 @@ import "./Cart.css";
 const Cart = () => {
   const { cartItems } = useContext(CartContext);
 
+  console.log({ cartItems });
+
   const [cartOpen, setCartOpen] = useState(false);
   const [productsLength, setProductsLength] = useState(0);
   const [total, setTotal] = useState(0);
   const [discount, setDiscount] = useState(0);
+  const [totalDiscount, setTotalDiscount] = useState(0);
   const initialValue = 0;
 
   //every time shopping cart change, the amount of products is updated
@@ -29,6 +32,20 @@ const Cart = () => {
     initialValue
   );
 
+  useEffect(() => {
+    const subTotal = cartItems.reduce(
+      (previousValue, currentValue) =>
+        previousValue + currentValue.amount * currentValue.price,
+      initialValue
+    );
+
+    const y = 100 - discount;
+    const x = y * subTotal;
+    const newtotal = x / 100;
+    console.log({ newtotal, x, y, discount });
+    setTotal(newtotal);
+  }, [cartItems]);
+
   //to get the data that we write on the input and calculate the discount
   const handleChangeDiscount = (e) => {
     const subTotal = cartItems.reduce(
@@ -37,15 +54,15 @@ const Cart = () => {
       initialValue
     );
     const baseDiscount = e.target.value;
-    const discountAmount = (subTotal * baseDiscount) / 100;
-    const totalDiscount = subTotal - discountAmount;
-    if (e.target.value.length === "") {
-      setTotal(subTotal);
-      setDiscount(discountAmount);
-    } else {
-      setDiscount(discountAmount);
-      setTotal(totalDiscount);
-    }
+    const y = 100 - baseDiscount;
+    const x = y * subTotal;
+    const newtotal = x / 100;
+    const newTodalDiscount = subTotal - newtotal;
+    console.log({ newtotal, x, y, baseDiscount });
+
+    setTotalDiscount(newTodalDiscount);
+    setTotal(newtotal);
+    setDiscount(baseDiscount);
   };
 
   return (
@@ -84,6 +101,7 @@ const Cart = () => {
             <div className="coupon-container">
               <label className="coupon-title">Código de descuento</label>
               <input
+                value={discount}
                 type="number"
                 min="0"
                 max="100"
@@ -93,7 +111,7 @@ const Cart = () => {
             </div>
             <div className="sumary-details-container">
               <p>Subtotal: ${subTotalItemsCart} </p>
-              <p>Descuento: ${discount} </p>
+              <p>Descuento: ${totalDiscount} </p>
             </div>
           </div>
 
