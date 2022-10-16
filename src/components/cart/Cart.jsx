@@ -6,8 +6,6 @@ import "./Cart.css";
 const Cart = () => {
   const { cartItems } = useContext(CartContext);
 
-  console.log({ cartItems });
-
   const [cartOpen, setCartOpen] = useState(false);
   const [productsLength, setProductsLength] = useState(0);
   const [total, setTotal] = useState(0);
@@ -42,7 +40,6 @@ const Cart = () => {
     const y = 100 - discount;
     const x = y * subTotal;
     const newtotal = x / 100;
-    console.log({ newtotal, x, y, discount });
     setTotal(newtotal);
   }, [cartItems]);
 
@@ -58,7 +55,6 @@ const Cart = () => {
     const x = y * subTotal;
     const newtotal = x / 100;
     const newTodalDiscount = subTotal - newtotal;
-    console.log({ newtotal, x, y, baseDiscount });
 
     setTotalDiscount(newTodalDiscount);
     setTotal(newtotal);

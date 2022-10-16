@@ -39,7 +39,7 @@ const Products = () => {
                 className="add-product-button"
                 disabled={isDisabled}
               >
-                <span> {isDisabled ? "Out of stock" : "Agregar"} </span>
+                <span> {isDisabled ? "Fuera de stock" : "Agregar"} </span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"

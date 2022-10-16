@@ -13,12 +13,16 @@ const ItemCart = ({ item }) => {
         <p className="item-cart-price">${item.price}</p>
       </div>
       <div className="buttons-container">
-        <button className="button" onClick={() => AddItemToCart(item)}>
-          +
-        </button>
-        <p className="amount-text">{item.amount}</p>
         <button className="button" onClick={() => DeleteItemToCart(item)}>
           -
+        </button>
+        <p className="amount-text">{item.amount}</p>
+        <button
+          className="button"
+          onClick={() => AddItemToCart(item)}
+          disabled={item.amount >= item.stock}
+        >
+          +
         </button>
       </div>
       <div className="price-increased-container">
